@@ -400,7 +400,7 @@
 
 (defmacro with-output-to-zipstream
     ((var stream) &body body)
-  `(let ((,var (make-zipfile-writer-for-strem ,stream)))
+  `(let ((,var (make-zipstream-writer ,stream)))
      (unwind-protect
 	 (progn ,@body)
        (close-zipstream-writer ,var))))
